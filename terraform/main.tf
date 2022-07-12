@@ -6,6 +6,17 @@ terraform {
       name = "nimble-growth-39-aws-eks"
     }
   }
+
+  # Provider versions
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.0"
+    }
+  }
+
+  # Terraform version
+  required_version = "~> 1.2.4"
 }
 
 provider "aws" {
