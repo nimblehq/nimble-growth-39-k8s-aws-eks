@@ -28,13 +28,11 @@ terraform login
 
 1. Clone the CodeWar application `https://github.com/nimblehq/codewar-web`
 
-2. Checkout to the `chore/nimble-growth-39-push-to-ecr-workflow` branch.
+2. Checkout a new branch from the `chore/nimble-growth-39-push-to-ecr-workflow` branch.
 
-3. Checkout to new branch `git checkout -b chore/add-elixir-cluster`.
+3. Modify the codebase
 
-4. Modify the codebase
-
-5. Push the changes and trigger the `https://github.com/nimblehq/codewar-web/actions/workflows/push-to-ecr.yml` workflow.
+4. Push the changes and trigger the `https://github.com/nimblehq/codewar-web/actions/workflows/push-to-ecr.yml` workflow.
 
 ## License
 
