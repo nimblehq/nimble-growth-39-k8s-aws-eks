@@ -1,12 +1,28 @@
-# Git Repository Template
+# AWS EKS
 
-Project repository template to set up all public projects at [Nimble](https://nimblehq.co/)
+For Nimble Growth 39 session - AWS EKS practice.
 
 ## Usage
 
-Clone the repository
+1. Clone the repository
 
-`git clone git@github.com:nimblehq/git-template.git`
+```bash
+  git clone git@github.com:nimblehq/nimble-growth-39-k8s-aws-eks.git
+```
+
+2. Login to Terraform Cloud
+
+```bash
+terraform login
+
+[Enter the Token from 1PassWord]
+```
+
+3. Cd to the `terraform` folder
+
+4. `terraform init`
+
+5. `terraform plan`
 
 ## License
 

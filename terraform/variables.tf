@@ -17,6 +17,7 @@ variable "app_port" {
   description = "Application running port"
   type        = number
 }
+
 variable "region" {
   description = "AWS region"
   type        = string
@@ -34,11 +35,6 @@ variable "image_limit" {
 
 variable "health_check_path" {
   description = "Application health check path"
-  type        = string
-}
-
-variable "domain" {
-  description = "Application domain"
   type        = string
 }
 
