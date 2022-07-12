@@ -34,7 +34,7 @@ variable "image_limit" {
 
 variable "health_check_path" {
   description = "Application health check path"
-  type = string
+  type        = string
 }
 
 variable "domain" {
@@ -49,55 +49,55 @@ variable "rds_instance_type" {
 
 variable "rds_database_name" {
   description = "RDS database name"
-  type = string
+  type        = string
 }
 
 variable "rds_username" {
   description = "RDS username"
-  type = string
+  type        = string
 }
 
 variable "rds_password" {
   description = "RDS password"
-  type = string
+  type        = string
 }
 
 variable "rds_autoscaling_min_capacity" {
   description = "Minimum number of RDS read replicas when autoscaling is enabled"
-  type = number
+  type        = number
 }
 
 variable "rds_autoscaling_max_capacity" {
   description = "Maximum number of RDS read replicas when autoscaling is enabled"
-  type = number
+  type        = number
 }
 
 variable "bastion_image_id" {
   description = "The AMI image ID for the bastion instance"
-  default = "ami-0801a1e12f4a9ccc0"
+  default     = "ami-0801a1e12f4a9ccc0"
 }
 
 variable "bastion_instance_type" {
   description = "The bastion instance type"
-  default = "t3.nano"
+  default     = "t3.nano"
 }
 
 variable "bastion_instance_desired_count" {
   description = "The desired number of the bastion instance"
-  default = 1
+  default     = 1
 }
 
 variable "bastion_max_instance_count" {
   description = "The maximum number of the instance"
-  default = 1
+  default     = 1
 }
 
 variable "bastion_min_instance_count" {
   description = "The minimum number of the instance"
-  default = 1
+  default     = 1
 }
 
 variable "secret_key_base" {
   description = "The Secret key base for the application"
-  type = string
+  type        = string
 }

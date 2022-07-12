@@ -23,7 +23,7 @@ provider "aws" {
 module "vpc" {
   source = "./modules/vpc"
 
-  namespace   = var.namespace
+  namespace = var.namespace
 }
 
 # Security groups
@@ -57,7 +57,7 @@ module "log" {
 module "s3" {
   source = "./modules/s3"
 
-  namespace   = var.namespace
+  namespace = var.namespace
 }
 
 # ALB
@@ -112,8 +112,8 @@ module "bastion" {
 module "ssm" {
   source = "./modules/ssm"
 
-  namespace = var.namespace
-  secret_key_base       = var.secret_key_base
+  namespace       = var.namespace
+  secret_key_base = var.secret_key_base
 
   rds_username      = var.rds_username
   rds_password      = var.rds_password
