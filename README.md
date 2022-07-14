@@ -24,6 +24,16 @@ terraform login
 
 5. `terraform plan`
 
+## Adjust the `codewar` application to support Elixir Cluster
+
+1. Clone the CodeWar application `https://github.com/nimblehq/codewar-web`
+
+2. Checkout a new branch from the `chore/nimble-growth-39-push-to-ecr-workflow` branch.
+
+3. Modify the codebase
+
+4. Push the changes and trigger the `https://github.com/nimblehq/codewar-web/actions/workflows/push-to-ecr.yml` workflow.
+
 ## License
 
 This project is Copyright (c) 2014 and onwards Nimble. It is free software and may be redistributed under the terms specified in the [LICENSE] file.
