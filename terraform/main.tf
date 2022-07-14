@@ -1,35 +1,3 @@
-terraform {
-  cloud {
-    organization = "nimble"
-
-    workspaces {
-      name = "nimble-growth-39-aws-eks"
-    }
-  }
-
-  # Provider versions
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 4.0"
-    }
-  }
-
-  # Terraform version
-  required_version = "~> 1.2.4"
-}
-
-provider "aws" {
-  region = var.region
-
-  default_tags {
-    tags = {
-      Environment = var.environment
-      Owner       = var.owner
-    }
-  }
-}
-
 # VPC
 module "vpc" {
   source = "./modules/vpc"
@@ -130,4 +98,13 @@ module "ssm" {
   rds_password      = var.rds_password
   rds_database_name = var.rds_database_name
   rds_endpoint      = module.rds.db_endpoint
+}
+
+# EKS
+module "eks" {
+  source = "./modules/eks"
+
+  namespace  = var.namespace
+  vpc_id     = module.vpc.vpc_id
+  subnet_ids = module.vpc.private_subnet_ids
 }
