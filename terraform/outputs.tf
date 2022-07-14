@@ -12,3 +12,13 @@ output "alb_dns_name" {
   description = "ALB DNS"
   value       = module.alb.alb_dns_name
 }
+
+output "region" {
+  description = "AWS region"
+  value       = var.region
+}
+
+output "cluster_id" {
+  description = "AWS EKS cluster ID"
+  value       = module.eks.cluster_id
+}
