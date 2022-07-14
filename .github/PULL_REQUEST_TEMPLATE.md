@@ -1,4 +1,4 @@
-https://github.com/nimblehq/git-template/issues/??
+https://github.com/nimblehq/nimble-growth-39-k8s-aws-eks/issues/??
 
 ## What happened 👀
 
