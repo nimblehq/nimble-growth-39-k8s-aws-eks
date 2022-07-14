@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: codewar-deployment
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: codewar-app
+      tier: codewar
+  replicas: 2
+  strategy:
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: codewar-app
+        tier: codewar
+    spec: 
+      containers:
+      - name: codewar-container
+        image: 301618631622.dkr.ecr.ap-southeast-1.amazonaws.com/nimble-growth-39-aws-eks:nimble-growth-39
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4000
+        resources:
+          requests:
+            cpu: "50m"
+            memory: "256Mi"
+          limits:
+            cpu: "250m"
+            memory: "1024Mi"
+        env:
+          - name: DATABASE_URL
+            value: postgresql://codewar:super_codewar@nimble-growth-39-aws-eks-aurora-db.cluster-cevlbj5dtiak.ap-southeast-1.rds.amazonaws.com/codewar
+          - name: SECRET_KEY_BASE
+            value: TZ/BkroSppRgLv4gHwwMZ0Qe83Q0Mk3LjUOHjtWTn8n26MkgpKOiae2I8frWFq7f
+          - name: DATABASE_POOL_SIZE
+            value: "10"
+          - name: PORT
+            value: "4000"
+          - name: HOST
+            value: http://nimble-growth-39-aws-eks-alb-639370400.ap-southeast-1.elb.amazonaws.com
+          - name: API_PRIME_NUMBER_LIST
+            value: ""
+          - name: BASIC_AUTH_USERNAME
+            value: admin
+          - name: BASIC_AUTH_PASSWORD
+            value: admin
+        livenessProbe:
+          tcpSocket:
+            port: 4000
+          initialDelaySeconds: 60
+          periodSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 4000
+            httpHeaders:
+            - name: accept
+              value: text/html
+          initialDelaySeconds: 60
+          periodSeconds: 5
