@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: codewar-deployment
+  labels:
+    app: codewar-app
   namespace: default
 spec:
   selector:
@@ -43,7 +45,7 @@ spec:
           - name: PORT
             value: "4000"
           - name: HOST
-            value: http://nimble-growth-39-aws-eks-alb-639370400.ap-southeast-1.elb.amazonaws.com
+            value: "172.20.158.191"
           - name: API_PRIME_NUMBER_LIST
             value: ""
           - name: BASIC_AUTH_USERNAME
@@ -64,3 +66,21 @@ spec:
               value: text/html
           initialDelaySeconds: 60
           periodSeconds: 5
+        # livenessProbe:
+        #   httpGet:
+        #     path: /_health/liveness
+        #     port: 4000
+        #     httpHeaders:
+        #     - name: accept
+        #       value: text/html
+        #   initialDelaySeconds: 60
+        #   periodSeconds: 5
+        # readinessProbe:
+        #   httpGet:
+        #     path: /_health/readiness
+        #     port: 4000
+        #     httpHeaders:
+        #     - name: accept
+        #       value: text/html
+        #   initialDelaySeconds: 60
+        #   periodSeconds: 5
