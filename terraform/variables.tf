@@ -24,10 +24,6 @@ variable "region" {
   default     = "ap-southeast-1"
 }
 
-variable "nimble_office_ip" {
-  description = "Nimble Office IP"
-}
-
 variable "image_limit" {
   description = "Sets max amount of the latest develop images to be kept"
   type        = number
@@ -66,31 +62,6 @@ variable "rds_autoscaling_min_capacity" {
 variable "rds_autoscaling_max_capacity" {
   description = "Maximum number of RDS read replicas when autoscaling is enabled"
   type        = number
-}
-
-variable "bastion_image_id" {
-  description = "The AMI image ID for the bastion instance"
-  default     = "ami-0801a1e12f4a9ccc0"
-}
-
-variable "bastion_instance_type" {
-  description = "The bastion instance type"
-  default     = "t3.nano"
-}
-
-variable "bastion_instance_desired_count" {
-  description = "The desired number of the bastion instance"
-  default     = 1
-}
-
-variable "bastion_max_instance_count" {
-  description = "The maximum number of the instance"
-  default     = 1
-}
-
-variable "bastion_min_instance_count" {
-  description = "The minimum number of the instance"
-  default     = 1
 }
 
 variable "secret_key_base" {

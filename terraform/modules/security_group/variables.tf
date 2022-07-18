@@ -17,8 +17,3 @@ variable "app_port" {
   description = "Application running port"
   type        = number
 }
-
-variable "nimble_office_ip" {
-  description = "Nimble Office IP"
-  type        = string
-}
