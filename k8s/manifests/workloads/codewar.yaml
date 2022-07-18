@@ -53,34 +53,20 @@ spec:
           - name: BASIC_AUTH_PASSWORD
             value: admin
         livenessProbe:
-          tcpSocket:
-            port: 4000
-          initialDelaySeconds: 60
-          periodSeconds: 5
-        readinessProbe:
           httpGet:
-            path: /
+            path: /_health/liveness
             port: 4000
             httpHeaders:
             - name: accept
               value: text/html
           initialDelaySeconds: 60
           periodSeconds: 5
-        # livenessProbe:
-        #   httpGet:
-        #     path: /_health/liveness
-        #     port: 4000
-        #     httpHeaders:
-        #     - name: accept
-        #       value: text/html
-        #   initialDelaySeconds: 60
-        #   periodSeconds: 5
-        # readinessProbe:
-        #   httpGet:
-        #     path: /_health/readiness
-        #     port: 4000
-        #     httpHeaders:
-        #     - name: accept
-        #       value: text/html
-        #   initialDelaySeconds: 60
-        #   periodSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /_health/readiness
+            port: 4000
+            httpHeaders:
+            - name: accept
+              value: text/html
+          initialDelaySeconds: 60
+          periodSeconds: 5
