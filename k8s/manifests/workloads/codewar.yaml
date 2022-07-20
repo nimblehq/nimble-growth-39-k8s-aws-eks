@@ -45,7 +45,7 @@ spec:
           - name: PORT
             value: "4000"
           - name: HOST
-            value: "172.20.158.191"
+            value: http://a1336bc140e404c4cb0c21c5846353f5-6365e43556d06844.elb.ap-southeast-1.amazonaws.com
           - name: API_PRIME_NUMBER_LIST
             value: ""
           - name: BASIC_AUTH_USERNAME

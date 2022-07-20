@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: codewar-service
   namespace: default
+  annotations:
+      service.beta.kubernetes.io/aws-load-balancer-type: nlb    # To create Network Load Balancer
   #This prevents dangling load balancer resources even in corner cases such as the service controller crashing.
   finalizers:
     - service.kubernetes.io/load-balancer-cleanup
