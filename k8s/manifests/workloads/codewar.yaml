@@ -10,7 +10,7 @@ spec:
     matchLabels:
       app: codewar-app
       tier: codewar
-  replicas: 2
+  replicas: 4
   strategy:
     rollingUpdate:
       maxSurge: 0
@@ -21,7 +21,7 @@ spec:
       labels:
         app: codewar-app
         tier: codewar
-    spec: 
+    spec:
       containers:
       - name: codewar-container
         image: 301618631622.dkr.ecr.ap-southeast-1.amazonaws.com/nimble-growth-39-aws-eks:nimble-growth-39
@@ -52,6 +52,10 @@ spec:
             value: admin
           - name: BASIC_AUTH_PASSWORD
             value: admin
+          - name: POD_IP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP
         livenessProbe:
           httpGet:
             path: /_health/liveness
@@ -60,7 +64,7 @@ spec:
             - name: accept
               value: text/html
           initialDelaySeconds: 60
-          periodSeconds: 5
+          periodSeconds: 30
         readinessProbe:
           httpGet:
             path: /_health/readiness
@@ -69,4 +73,4 @@ spec:
             - name: accept
               value: text/html
           initialDelaySeconds: 60
-          periodSeconds: 5
+          periodSeconds: 30
